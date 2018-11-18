@@ -7,6 +7,10 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 
+// Añadido
+import { Proveedor1Provider } from '../providers/proveedor1/proveedor1'; // <-- Añadido automáticamente al crear el proveedor con el comando ionic g provider proveedor1
+import { HttpClientModule } from '@angular/common/http'; // <-- Añadido manualmente
+
 @NgModule({
   declarations: [
     MyApp,
@@ -14,7 +18,8 @@ import { HomePage } from '../pages/home/home';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    HttpClientModule // <-- Añadido manualmente
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -24,7 +29,8 @@ import { HomePage } from '../pages/home/home';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    Proveedor1Provider // <-- Añadido automáticamente al crear el proveedor con el comando ionic g provider proveedor1
   ]
 })
 export class AppModule {}
